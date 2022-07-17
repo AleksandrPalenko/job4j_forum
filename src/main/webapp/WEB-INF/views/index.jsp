@@ -30,14 +30,19 @@
             <thead>
             <tr>
                 <th scope="col">Тема</th>
+                <th scope="col">Дата создания</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="post" items="${posts}">
                 <tr>
                     <td>
-                        <c:out value="${post.userName}"/>
+                        <a href="<c:url value='/edit?id=${post.id}'/>">
+                            <i class="fa fa-file-text-o custom"></i>
+                        </a>
+                        <c:out value="${post.name}"/>
                     </td>
+                    <td>${post.created}</td>
                 </tr>
             </c:forEach>
             </tbody>

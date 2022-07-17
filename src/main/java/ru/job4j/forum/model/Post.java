@@ -1,27 +1,32 @@
 package ru.job4j.forum.model;
 
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Entity
+@Table(name = "posts")
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String userName;
+    private String name;
     private String description;
-    private LocalDateTime created = LocalDateTime.now();
+    private LocalDate created;
 
     public Post() {
     }
-
-    public Post(int id, String userName, String description, LocalDateTime created) {
+    public Post(int id, String name, String description, LocalDate created) {
         this.id = id;
-        this.userName = userName;
+        this.name = name;
         this.description = description;
         this.created = created;
     }
 
-    public static Post of(String userName, String description, LocalDateTime created) {
+    public static Post of(String name, String description, LocalDate created) {
         Post post = new Post();
-        post.userName = userName;
+        post.name = name;
         post.description = description;
         post.created = created;
         return post;
@@ -35,12 +40,12 @@ public class Post {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String name) {
-        this.userName = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -51,11 +56,11 @@ public class Post {
         this.description = description;
     }
 
-    public LocalDateTime getCreated() {
+    public LocalDate getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public void setCreated(LocalDate created) {
         this.created = created;
     }
 
@@ -69,11 +74,11 @@ public class Post {
         }
         Post post = (Post) o;
         return id == post.id
-                && Objects.equals(userName, post.userName);
+                && Objects.equals(name, post.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName);
+        return Objects.hash(id, name);
     }
 }

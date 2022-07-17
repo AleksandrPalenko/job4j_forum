@@ -28,14 +28,15 @@
             </tr>
             </thead>
             <tbody>
-            <td>${post.userName}</td>
+            <td>${post.name}</td>
             <td>${post.description}</td>
             <td>${post.created}</td>
             </tbody>
         </table>
-        <div>
-            <a href="<c:url value='/create'/>" class="btn btn-primary" role="button">Добавить тему</a>
-        </div>
+        <span>
+            <a class="btn btn-primary" href="<c:url value='/update?id=${post.id}'/>">Редактировать</a>
+            <a class="btn btn-primary" href="/">Главная</a>
+         </span>
     </div>
 </div>
 

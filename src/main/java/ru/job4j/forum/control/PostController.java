@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.job4j.forum.model.Post;
 import ru.job4j.forum.service.PostService;
 
+import java.time.LocalDate;
+
 @Controller
 public class PostController {
 
@@ -20,28 +22,32 @@ public class PostController {
     }
 
     @GetMapping("/create")
-    public String create(Model model) {
-        model.addAttribute("posts", postService.getAll());
-        return "posts/create";
+    public String create() {
+        return "edit";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Post post) {
-        postService.add(post);
+        post.setCreated(LocalDate.now());
+        if (post.getId() == 0) {
+            postService.add(post);
+        } else {
+            postService.update(post);
+        }
         return "redirect:/";
     }
 
     @GetMapping("/update")
     public String edit(@RequestParam("id") int id, @NotNull Model model) {
-        model.addAttribute("posts", postService.getAll());
         model.addAttribute("post", postService.findById(id));
-        return "posts/edit";
+        return "edit";
     }
 
-    @PostMapping("/edit")
-    public String update(@ModelAttribute Post post) {
-        postService.update(post);
-        return "redirect:/";
+    @GetMapping("/edit")
+    public String update(@RequestParam("id") int id, @NotNull Model model) {
+        model.addAttribute("post", postService.findById(id));
+        return "post";
     }
+
 
 }
