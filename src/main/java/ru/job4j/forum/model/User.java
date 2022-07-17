@@ -9,23 +9,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String userName;
+    private String username;
     private String password;
 
-    public User(int id, String userName) {
-        this.id = id;
-        this.userName = userName;
-    }
+    @ManyToOne
+    @JoinColumn(name = "authority_id")
+    private Authority authority;
 
-    public User of(String userName, String password) {
-        User user = new User();
-        user.userName = userName;
-        user.password = password;
-        return user;
-    }
-
-    public User() {
-    }
+    private boolean enabled;
 
     public int getId() {
         return id;
@@ -33,6 +24,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -43,12 +42,20 @@ public class User {
         this.password = password;
     }
 
-    public String getUserName() {
-        return userName;
+    public Authority getAuthority() {
+        return authority;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
@@ -60,20 +67,11 @@ public class User {
             return false;
         }
         User user = (User) o;
-        return id == user.id && Objects.equals(userName, user.userName);
+        return id == user.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName);
-    }
-
-    @Override
-    public String toString() {
-        return "User{"
-                + "id=" + id
-                + ", userName='" + userName
-                + '\''
-                + '}';
+        return Objects.hash(id);
     }
 }

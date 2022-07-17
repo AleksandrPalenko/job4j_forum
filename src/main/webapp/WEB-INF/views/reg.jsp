@@ -5,11 +5,16 @@
     <title>Форум job4j</title>
 </head>
 <body>
+<c:if test="${not empty errorMessage}">
+    <div style="color:red; font-weight: bold; margin: 30px 0px;">
+            ${errorMessage}
+    </div>
+</c:if>
 <form name='login' action="<c:url value='/reg'/>" method='POST'>
     <table>
         <tr>
             <td>UserName:</td>
-            <td><input type='text' name='userName'></td>
+            <td><input type='text' name='username'></td>
         </tr>
         <tr>
             <td>Password:</td>

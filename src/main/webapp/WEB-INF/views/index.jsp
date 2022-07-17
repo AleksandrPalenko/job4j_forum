@@ -22,6 +22,10 @@
 </head>
 <body>
 <div class="container mt-3">
+    <div>
+        Login as : ${user.username} |
+    </div>
+    <a href="<c:url value='/logout'/>" class="btn btn-primary" role="button">Exit</a>
     <div class="row">
         <h4>Форум job4j</h4>
     </div>
