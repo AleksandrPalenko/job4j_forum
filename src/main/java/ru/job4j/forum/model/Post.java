@@ -5,23 +5,23 @@ import java.util.Objects;
 
 public class Post {
     private int id;
-    private String name;
+    private String userName;
     private String description;
     private LocalDateTime created = LocalDateTime.now();
 
     public Post() {
     }
 
-    public Post(int id, String name, String description, LocalDateTime created) {
+    public Post(int id, String userName, String description, LocalDateTime created) {
         this.id = id;
-        this.name = name;
+        this.userName = userName;
         this.description = description;
         this.created = created;
     }
 
-    public static Post of(String name, String description, LocalDateTime created) {
+    public static Post of(String userName, String description, LocalDateTime created) {
         Post post = new Post();
-        post.name = name;
+        post.userName = userName;
         post.description = description;
         post.created = created;
         return post;
@@ -35,12 +35,12 @@ public class Post {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String name) {
+        this.userName = name;
     }
 
     public String getDescription() {
@@ -69,11 +69,11 @@ public class Post {
         }
         Post post = (Post) o;
         return id == post.id
-                && Objects.equals(name, post.name);
+                && Objects.equals(userName, post.userName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, userName);
     }
 }
