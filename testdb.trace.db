@@ -1,0 +1,20 @@
+2022-07-25 18:23:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "DATABASECHANGELOGLOCK" не найдена
+Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-200]
+2022-07-26 11:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "AUTHORITIES" не найдена
+Table "AUTHORITIES" not found; SQL statement:
+select authority0_.id as id1_0_, authority0_.authority as authorit2_0_ from authorities authority0_ where authority0_.authority=? [42102-200]
+2022-07-26 11:48:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "AUTHORITIES" не найдена
+Table "AUTHORITIES" not found; SQL statement:
+select authority0_.id as id1_0_, authority0_.authority as authorit2_0_ from authorities authority0_ where authority0_.authority=? [42102-200]
+2022-07-26 11:49:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "AUTHORITIES" не найдена
+Table "AUTHORITIES" not found; SQL statement:
+select authority0_.id as id1_0_, authority0_.authority as authorit2_0_ from authorities authority0_ where authority0_.authority=? [42102-200]
+2022-07-26 11:56:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "AUTHORITIES" не найдена
+Table "AUTHORITIES" not found; SQL statement:
+select authority0_.id as id1_0_, authority0_.authority as authorit2_0_ from authorities authority0_ where authority0_.authority=? [42102-200]

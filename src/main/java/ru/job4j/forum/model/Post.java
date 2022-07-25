@@ -24,6 +24,11 @@ public class Post {
         this.created = created;
     }
 
+    public Post(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public static Post of(String name, String description, LocalDate created) {
         Post post = new Post();
         post.name = name;
