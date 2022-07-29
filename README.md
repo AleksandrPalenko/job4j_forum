@@ -7,4 +7,4 @@ login.jsp - авторизация пользователя.
 edit.jsp - создание и редактирование темы.
 post.jsp - тема и обсуждения.
 
-Стек технологий: Spring boot, Thymeleaf, Bootstrap, Hibernate, PostgreSql
+Стек технологий: Spring boot, JSP, Bootstrap, Hibernate, PostgreSql
