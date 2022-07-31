@@ -19,3 +19,4 @@ MVC приложение, реализующее функционал прост
 - HTML, CSS, Bootstrap, JSP, JSTL
 - Spring Boot, Spring Web MVC, Spring Security, Spring Data
 - Maven, Checkstyle, Liquibase, Postgres
+- Mockito
